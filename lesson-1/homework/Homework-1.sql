@@ -76,7 +76,7 @@ insert into nobel_win values
 (1987, 'Economics', 'Robert Solow', 'USA', 'Economist'),
 (1994, 'Economics', 'Reinhard Selten', 'Germany', 'Economist'),
 (1994, 'Peace', 'Yitzhak Rabin', 'Israel', 'Prime Minister'),
-(1994, 'Literature', 'Kenzaburo Oe', 'Japan', 'Linguist');
+(1994, 'Literature', 'Kenzaburo Oe', 'Japan', 'Linguist')
 
 
 select YEAR, SUBJECT, WINNER from nobel_win where YEAR = 1970
