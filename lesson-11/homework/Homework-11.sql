@@ -1,4 +1,4 @@
-﻿DROP TABLE IF EXISTS Employees;
+DROP TABLE IF EXISTS Employees;
 
 CREATE TABLE Employees (
     EmployeeID INT PRIMARY KEY,
@@ -56,6 +56,8 @@ INSERT INTO Employees (EmployeeID, Name, DepartmentID, Salary, HireDate, Manager
 (43, 'Eric Collins', 8, 58000.00, '2020-10-30', 41),
 (44, 'Megan Edwards', 9, 70000.00, '2019-11-25', 41);
 
+
+
 DROP TABLE IF EXISTS Departments;
 
 CREATE TABLE Departments (
@@ -69,6 +71,8 @@ INSERT INTO Departments (DepartmentID, DepartmentName) VALUES
 (3, 'IT'),
 (4, 'Marketing'),
 (5, 'Finance');
+
+
 
 DROP TABLE IF EXISTS Customers;
 
@@ -100,9 +104,9 @@ INSERT INTO Customers (CustomerID, FirstName, LastName, Email, Phone, Address, C
 (10, 'Helen', 'Gonzalez', 'heleng@yahoo.com', '555-0123', '707 Fir St', 'Berlin', 'BE', '10117', 'Germany'),
 (11, 'Irene', 'Perez', 'irenep@hotmail.com', '555-1234', '808 Maple Ave', 'Munich', 'BY', '80331', 'Germany'),
 (12, 'Jack', 'Wilson', 'jackw@live.com', '555-2345', '909 Oak Ave', 'Hamburg', 'HH', '20095', 'Germany'),
-(13, 'Kim', 'Anderson', 'kima@gmail.com', '555-3456', '111 Pine Ave', 'Paris', 'Île-de-France', '75001', 'France'),
-(14, 'Liam', 'Thomas', 'liamt@yahoo.com', '555-4567', '222 Cedar Ave', 'Lyon', 'Auvergne-Rhône-Alpes', '69001', 'France'),
-(15, 'Megan', 'Taylor', 'megant@outlook.com', '555-5678', '333 Redwood Ave', 'Marseille', 'Provence-Alpes-Côte Azur', '13001', 'France'),
+(13, 'Kim', 'Anderson', 'kima@gmail.com', '555-3456', '111 Pine Ave', 'Paris', '?le-de-France', '75001', 'France'),
+(14, 'Liam', 'Thomas', 'liamt@yahoo.com', '555-4567', '222 Cedar Ave', 'Lyon', 'Auvergne-Rh?ne-Alpes', '69001', 'France'),
+(15, 'Megan', 'Taylor', 'megant@outlook.com', '555-5678', '333 Redwood Ave', 'Marseille', 'Provence-Alpes-C?te Azur', '13001', 'France'),
 (16, 'Nathan', 'Moore', 'nathanm@hotmail.com', '555-6789', '444 Willow Ave', 'Tokyo', 'TK', '100-0001', 'Japan'),
 (17, 'Olivia', 'Jackson', 'oliviaj@gmail.com', '555-7890', '555 Birch Ave', 'Osaka', 'OS', '530-0001', 'Japan'),
 (18, 'Paul', 'White', 'paulw@yahoo.com', '555-8901', '666 Maple Blvd', 'Kyoto', 'KY', '600-8001', 'Japan'),
@@ -129,8 +133,11 @@ INSERT INTO Customers (CustomerID, FirstName, LastName, Email, Phone, Address, C
 (39, 'Kyle', 'Young', 'kyley@hotmail.com', '555-9012', '2727 Willow St', 'Pittsburgh', 'PA', '15201','USA'),
 (40, 'Liam', 'Harris', 'liamh@live.com', '555-0123', '2828 Birch St', 'Richmond', 'VA', '23220','USA');
 
+
+
 DROP TABLE IF EXISTS Payments;
 DROP TABLE IF EXISTS Orders;
+
 
 CREATE TABLE Orders (
     OrderID INT PRIMARY KEY,
@@ -184,6 +191,7 @@ INSERT INTO Orders VALUES
 (3911, 30, 40, '2023-11-26', 3, 120.00),
 (4057, 22, 1, '2024-03-09', 1, 1200.00);
 
+
 DROP TABLE IF EXISTS Payments;
 
 CREATE TABLE Payments (
@@ -218,6 +226,8 @@ INSERT INTO Payments VALUES
 (519, 1845, '2021-09-14', 50.00, 'Credit Card'),
 (520, NULL, '2025-01-18', 95.00, 'Bank Transfer'); 
 
+
+
 DROP TABLE IF EXISTS Products;
 DROP TABLE IF EXISTS Suppliers;
 -- Create Suppliers Table
@@ -228,6 +238,7 @@ CREATE TABLE Suppliers (
     Email VARCHAR(150)
 );
 
+
 INSERT INTO Suppliers (SupplierID, SupplierName, ContactName, Email) VALUES
 (1, 'Tech Distributors', 'Alice Johnson', 'alice@techdist.com'),
 (2, 'Gadget Supplies', 'Bob Smith', 'bob@gadgetsupplies.com'),
@@ -236,6 +247,7 @@ INSERT INTO Suppliers (SupplierID, SupplierName, ContactName, Email) VALUES
 (5, 'Clothing Mart', 'Ethan Clark', 'ethan@clothingmart.com'),
 (6, 'Car Parts', 'Tom Hanks', 'tom@carparts.com'),
 (7, 'Toys', 'John Adams', 'john@toysff.com');
+
 
 CREATE TABLE Products (
     ProductID INT PRIMARY KEY,
@@ -287,8 +299,8 @@ INSERT INTO Products (ProductID, ProductName, Price, Category, StockQuantity, Su
 (37, 'Blender', 35.00, 'Electronics', 40, 1),
 (38, 'Juicer', 55.00, 'Electronics', 30, 1),
 (39, 'Toaster', 40.00, 'Electronics', 70, 1),
-(40, 'Dishwasher', 500.00, 'Electronics', 20, 1),
-(41, 'Handsanitizer', 300.00, 'Healthcare', 20, 1);
+(40, 'Dishwasher', 500.00, 'Electronics', 20, 1);
+
 
 DROP TABLE IF EXISTS Categories;
 
@@ -318,6 +330,7 @@ WHERE Category = 4
 ALTER TABLE Products
 ALTER COLUMN Category INT NULL
 
+
 DROP TABLE IF EXISTS Enrollments;
 DROP TABLE IF EXISTS Students;
 DROP TABLE IF EXISTS Courses;
@@ -342,6 +355,8 @@ CREATE TABLE Enrollments (
     FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
     FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
 );
+
+
 
 INSERT INTO Students (StudentID, Name, Age, Major) VALUES
 (1, 'Alice Johnson', 20, 'Computer Science'),
@@ -385,6 +400,7 @@ INSERT INTO Students (StudentID, Name, Age, Major) VALUES
 (39, 'Madeline Perry', 22, 'Chemistry'),
 (40, 'Nathan Griffin', 19, 'Engineering');
 
+
 INSERT INTO Courses (CourseID, CourseName, Instructor) VALUES
 (1, 'Math 101', 'Dr. Adams'),
 (2, 'Physics 101', 'Dr. Brown'),
@@ -392,12 +408,16 @@ INSERT INTO Courses (CourseID, CourseName, Instructor) VALUES
 (4, 'Computer Science 101', 'Dr. Davis'),
 (5, 'Business 101', 'Dr. Evans');
 
+
+
 INSERT INTO Enrollments (StudentID, CourseID) VALUES
 (1, 1), (2, 1), (7, 1), (11, 1), (20, 1), (25, 1), (33, 1),
 (3, 2), (9, 2), (14, 2), (22, 2), (28, 2), (35, 2),
 (5, 3), (13, 3), (21, 3), (27, 3), (34, 3),
 (10, 4), (16, 4), (24, 4), (30, 4), (37, 4),
 (6, 5), (15, 5), (23, 5), (29, 5), (36, 5);
+
+
 
 DROP TABLE IF EXISTS Sales;
 
@@ -451,165 +471,122 @@ INSERT INTO Sales (SaleID, ProductID, CustomerID, SaleDate, SaleAmount) VALUES
 (39, 9, 10, '2023-02-09', 550.00),
 (40, 10, 1, '2023-02-10', 600.00);
 
--- 1
-SELECT e.Name, e.Salary, d.DepartmentName
-FROM Employees e
-INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
-WHERE e.Salary > 50000;
-
--- 2
-SELECT c.FirstName, c.LastName, o.OrderDate
-FROM Customers c
-INNER JOIN Orders o ON c.CustomerID = o.CustomerID
-WHERE YEAR(o.OrderDate) = 2023;
-
--- 3
-SELECT e.Name, d.DepartmentName
-FROM Employees e
-LEFT JOIN Departments d ON e.DepartmentID = d.DepartmentID;
-
--- 4
-SELECT s.SupplierName, p.ProductName
-FROM Suppliers s
-LEFT JOIN Products p ON s.SupplierID = p.SupplierID;
-
--- 5
-SELECT o.OrderID, o.OrderDate, p.PaymentDate, p.Amount
+SELECT o.OrderID, CONCAT(c.FirstName, ' ', c.LastName) AS CustomerName, o.OrderDate
 FROM Orders o
-FULL JOIN Payments p ON o.OrderID = p.OrderID;
+JOIN Customers c ON o.CustomerID = c.CustomerID
+WHERE YEAR(o.OrderDate) > 2022;
 
--- 6
-SELECT e.Name, m.Name AS ManagerName
+SELECT e.EmployeeName, d.DepartmentName
 FROM Employees e
-LEFT JOIN Employees m ON e.ManagerID = m.EmployeeID;
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+WHERE d.DepartmentName IN ('Sales', 'Marketing');
 
--- 7
-SELECT s.Name, c.CourseName
-FROM Students s
-INNER JOIN Enrollments e ON s.StudentID = e.StudentID
-INNER JOIN Courses c ON e.CourseID = c.CourseID
-WHERE c.CourseName = 'Math 101';
-
--- 8
-SELECT c.FirstName, c.LastName, o.Quantity
-FROM Customers c
-INNER JOIN Orders o ON c.CustomerID = o.CustomerID
-WHERE o.Quantity > 3;
-
--- 9
-SELECT e.Name, d.DepartmentName
-FROM Employees e
-INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
-WHERE d.DepartmentName = 'Human Resources';
-
--- 10
-SELECT d.DepartmentName, COUNT(e.EmployeeID) AS EmployeeCount
+SELECT d.DepartmentName, e.EmployeeName AS TopEmployeeName, e.Salary AS MaxSalary
 FROM Departments d
-INNER JOIN Employees e ON d.DepartmentID = e.DepartmentID
-GROUP BY d.DepartmentName
-HAVING COUNT(e.EmployeeID) > 10;
+JOIN (
+    SELECT DepartmentID, EmployeeName, Salary
+    FROM Employees e1
+    WHERE Salary = (
+        SELECT MAX(Salary)
+        FROM Employees e2
+        WHERE e2.DepartmentID = e1.DepartmentID
+    )
+) e ON d.DepartmentID = e.DepartmentID;
 
--- 11
-SELECT p.ProductID, p.ProductName
+SELECT CONCAT(c.FirstName, ' ', c.LastName) AS CustomerName, o.OrderID, o.OrderDate
+FROM Customers c
+JOIN Orders o ON c.CustomerID = o.CustomerID
+WHERE c.Country = 'USA' AND YEAR(o.OrderDate) = 2023;
+
+SELECT CONCAT(c.FirstName, ' ', c.LastName) AS CustomerName, COUNT(o.OrderID) AS TotalOrders
+FROM Customers c
+LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID, c.FirstName, c.LastName;
+
+SELECT p.ProductName, s.SupplierName
+FROM Products p
+JOIN Suppliers s ON p.SupplierID = s.SupplierID
+WHERE s.SupplierName IN ('Gadget Supplies', 'Clothing Mart');
+
+SELECT CONCAT(c.FirstName, ' ', c.LastName) AS CustomerName, MAX(o.OrderDate) AS MostRecentOrderDate, o.OrderID
+FROM Customers c
+LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID, c.FirstName, c.LastName, o.OrderID;
+
+SELECT CONCAT(c.FirstName, ' ', c.LastName) AS CustomerName, o.OrderID, o.TotalAmount AS OrderTotal
+FROM Orders o
+JOIN Customers c ON o.CustomerID = c.CustomerID
+WHERE o.TotalAmount > 500;
+
+SELECT p.ProductName, s.SaleDate, s.SaleAmount
+FROM Products p
+JOIN Sales s ON p.ProductID = s.ProductID
+WHERE YEAR(s.SaleDate) = 2022 OR s.SaleAmount > 400;
+
+SELECT p.ProductName, SUM(s.SaleAmount) AS TotalSalesAmount
 FROM Products p
 LEFT JOIN Sales s ON p.ProductID = s.ProductID
-WHERE s.ProductID IS NULL;
+GROUP BY p.ProductID, p.ProductName;
 
--- 12
-SELECT c.FirstName, c.LastName, COUNT(o.OrderID) AS TotalOrders
+SELECT e.Name, d.DepartmentName, e.Salary
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+WHERE d.DepartmentName = 'HR' AND e.Salary > 50000;
+
+SELECT p.ProductName, s.SaleDate, p.StockQuantity
+FROM Products p
+JOIN Sales s ON p.ProductID = s.ProductID
+WHERE YEAR(s.SaleDate) = 2023 AND p.StockQuantity > 50;
+
+SELECT e.EmployeeName, d.DepartmentName, e.HireDate
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+WHERE d.DepartmentName = 'Sales' OR YEAR(e.HireDate) > 2020;
+
+SELECT CONCAT(c.FirstName, ' ', c.LastName) AS CustomerName, o.OrderID, c.Address, o.OrderDate
 FROM Customers c
-INNER JOIN Orders o ON c.CustomerID = o.CustomerID
-GROUP BY c.FirstName, c.LastName;
+JOIN Orders o ON c.CustomerID = o.CustomerID
+WHERE c.Country = 'USA' AND c.Address LIKE '[0-9][0-9][0-9][0-9]%';
 
--- 13
+SELECT p.ProductName, p.Category, s.SaleAmount
+FROM Products p
+JOIN Sales s ON p.ProductID = s.ProductID
+WHERE p.Category = 'Electronics' OR s.SaleAmount > 350;
+
+SELECT c.CategoryName, COUNT(p.ProductID) AS ProductCount
+FROM Categories c
+LEFT JOIN Products p ON c.CategoryID = p.Category
+GROUP BY c.CategoryID, c.CategoryName;
+
+SELECT CONCAT(c.FirstName, ' ', c.LastName) AS CustomerName, c.City, o.OrderID, o.TotalAmount AS Amount
+FROM Customers c
+JOIN Orders o ON c.CustomerID = o.CustomerID
+WHERE c.City = 'Los Angeles' AND o.TotalAmount > 300;
+
 SELECT e.Name, d.DepartmentName
 FROM Employees e
-INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID;
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+WHERE d.DepartmentName IN ('HR', 'Finance')
+   OR (
+       (LEN(e.Name) - LEN(REPLACE(LOWER(e.Name), 'a', '')))
+     + (LEN(e.Name) - LEN(REPLACE(LOWER(e.Name), 'e', '')))
+     + (LEN(e.Name) - LEN(REPLACE(LOWER(e.Name), 'i', '')))
+     + (LEN(e.Name) - LEN(REPLACE(LOWER(e.Name), 'o', '')))
+     + (LEN(e.Name) - LEN(REPLACE(LOWER(e.Name), 'u', '')))
+   ) >= 4;
 
--- 14
-SELECT e1.Name AS Employee1, e2.Name AS Employee2, e1.ManagerID
-FROM Employees e1
-INNER JOIN Employees e2 ON e1.ManagerID = e2.ManagerID
-WHERE e1.EmployeeID < e2.EmployeeID;
-
--- 15
-SELECT o.OrderID, o.OrderDate, c.FirstName, c.LastName
-FROM Orders o
-INNER JOIN Customers c ON o.CustomerID = c.CustomerID
-WHERE YEAR(o.OrderDate) = 2022;
-
--- 16
-SELECT e.Name, e.Salary, d.DepartmentName
-FROM Employees e
-INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
-WHERE d.DepartmentName = 'Sales' AND e.Salary > 60000;
-
--- 17
-SELECT o.OrderID, o.OrderDate, p.PaymentDate, p.Amount
-FROM Orders o
-INNER JOIN Payments p ON o.OrderID = p.OrderID;
-
--- 18
-SELECT p.ProductID, p.ProductName
+SELECT p.ProductName, s.QuantitySold, p.Price
 FROM Products p
-LEFT JOIN Orders o ON p.ProductID = o.ProductID
-WHERE o.ProductID IS NULL;
+JOIN Sales s ON p.ProductID = s.ProductID
+WHERE s.QuantitySold > 100 AND p.Price > 500;
 
--- 19
-SELECT e.Name, e.Salary
+
+SELECT e.Name, d.DepartmentName, e.Salary
 FROM Employees e
-WHERE e.Salary > (SELECT AVG(Salary) FROM Employees);
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+WHERE d.DepartmentName IN ('Sales', 'Marketing') AND e.Salary > 60000;
 
--- 20
-SELECT o.OrderID, o.OrderDate
-FROM Orders o
-LEFT JOIN Payments p ON o.OrderID = p.OrderID
-WHERE p.PaymentID IS NULL AND YEAR(o.OrderDate) < 2020;
 
--- 21
-SELECT p.ProductID, p.ProductName
-FROM Products p
-LEFT JOIN Categories c ON p.Category = c.CategoryID
-WHERE c.CategoryID IS NULL;
 
--- 22
-SELECT e1.Name AS Employee1, e2.Name AS Employee2, e1.ManagerID, e1.Salary
-FROM Employees e1
-INNER JOIN Employees e2 ON e1.ManagerID = e2.ManagerID
-WHERE e1.EmployeeID < e2.EmployeeID AND e1.Salary > 60000;
-
--- 23
-SELECT e.Name, d.DepartmentName
-FROM Employees e
-INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
-WHERE d.DepartmentName LIKE 'M%';
-
--- 24
-SELECT s.SaleID, p.ProductName, s.SaleAmount
-FROM Sales s
-INNER JOIN Products p ON s.ProductID = p.ProductID
-WHERE s.SaleAmount > 500;
-
--- 25
-SELECT s.StudentID, s.Name
-FROM Students s
-WHERE s.StudentID NOT IN (
-    SELECT e.StudentID
-    FROM Enrollments e
-    INNER JOIN Courses c ON e.CourseID = c.CourseID
-    WHERE c.CourseName = 'Math 101'
-);
-
--- 26
-SELECT o.OrderID, o.OrderDate, p.PaymentID
-FROM Orders o
-LEFT JOIN Payments p ON o.OrderID = p.OrderID
-WHERE p.PaymentID IS NULL;
-
--- 27
-SELECT p.ProductID, p.ProductName, c.CategoryName
-FROM Products p
-INNER JOIN Categories c ON p.CategoryID = c.CategoryID
-WHERE c.CategoryName IN ('Electronics', 'Furniture');
 
 
